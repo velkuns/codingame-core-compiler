@@ -1,0 +1,11 @@
+parameters:
+  phpVersion: 70300 # PHP 7.3
+  level: 0
+  paths:
+    - ./../src
+    - ./../tests
+
+  bootstrapFiles:
+    - ./../vendor/autoload.php
+
+  ignoreErrors: []

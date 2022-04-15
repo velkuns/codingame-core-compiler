@@ -1,0 +1,16 @@
+{
+  "hasGameLoop": false,
+
+  "copyright": "Romain Cottard",
+
+  "dist": "tests/dist/codingame.php",
+
+  "sources": [
+    "src"
+  ],
+
+  "excludes": [
+    "src/Compiler",
+    "src/Config"
+  ]
+}
