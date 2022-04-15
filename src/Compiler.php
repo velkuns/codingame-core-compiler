@@ -34,7 +34,7 @@ class Compiler
      */
     public function __construct(string $rootDir, Config $config)
     {
-        $this->rootDir = (string) realpath($rootDir);
+        $this->rootDir = realpath($rootDir) . '/';
         $this->config  = $config;
     }
 
@@ -45,7 +45,7 @@ class Compiler
     {
         $compiledCode = str_replace('#COMPILED_CODE#', $this->compile(), $this->getTemplate());
 
-        (new FileDistWriter($this->rootDir . '/' . $this->config->getDistFile()))
+        (new FileDistWriter($this->rootDir . ltrim($this->config->getDistFile(), '/')))
             ->write($compiledCode)
             ->check()
         ;

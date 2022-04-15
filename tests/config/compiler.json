@@ -3,14 +3,14 @@
 
   "copyright": "Romain Cottard",
 
-  "dist": "tests/dist/codingame.php",
+  "dist": "/dist/codingame.php",
 
   "sources": [
-    "src"
+    "/src"
   ],
 
   "excludes": [
-    "src/Compiler",
-    "src/Config"
+    "/src/Compiler",
+    "/src/Config"
   ]
 }

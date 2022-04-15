@@ -24,13 +24,14 @@ class CompilerTest extends TestCase
 {
     public function testICanCompileTheCompiler(): void
     {
-        $compiler = new Compiler(__DIR__ . '/..', (new Config())->load(__DIR__ . '/config/compiler.json'));
+        $rootDir  = realpath(__DIR__ . '/..') . '/';
+        $compiler = new Compiler($rootDir, (new Config())->load(__DIR__ . '/config/compiler.json'));
         $compiler->run();
 
-        $this->assertTrue(file_exists(__DIR__ . '/dist/codingame.php'));
+        $this->assertTrue(file_exists($rootDir . '/dist/codingame.php'));
 
-        $expectedFile = file_get_contents(__DIR__ . '/dist/expected_codingame.php');
-        $compiledFile = file_get_contents(__DIR__ . '/dist/codingame.php');
+        $expectedFile = file_get_contents($rootDir . '/dist/expected_codingame.php');
+        $compiledFile = file_get_contents($rootDir . '/dist/codingame.php');
 
         $this->assertSame($expectedFile, $compiledFile);
     }

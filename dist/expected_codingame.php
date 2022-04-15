@@ -119,11 +119,17 @@ class Config
         return $this->hasGameLoop;
     }
 
+    /**
+     * @return string[]
+     */
     public function getSources(): array
     {
         return $this->sources;
     }
 
+    /**
+     * @return string[]
+     */
     public function getExcludes(): array
     {
         return $this->excludes;
@@ -156,7 +162,7 @@ class Compiler
      */
     public function __construct(string $rootDir, Config $config)
     {
-        $this->rootDir = (string) realpath($rootDir);
+        $this->rootDir = realpath($rootDir) . '/';
         $this->config  = $config;
     }
 
@@ -167,7 +173,7 @@ class Compiler
     {
         $compiledCode = str_replace('#COMPILED_CODE#', $this->compile(), $this->getTemplate());
 
-        (new FileDistWriter($this->rootDir . '/' . $this->config->getDistFile()))
+        (new FileDistWriter($this->rootDir . ltrim($this->config->getDistFile(), '/')))
             ->write($compiledCode)
             ->check()
         ;

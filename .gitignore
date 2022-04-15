@@ -6,8 +6,8 @@ composer.lock
 #~ Tests
 /build/*
 .phpunit.result.cache
-tests/dist/*
-!tests/dist/expected_codingame.php
+/dist/*
+!/dist/expected_codingame.php
 
 #~ Misc
 .idea

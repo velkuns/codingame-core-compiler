@@ -88,11 +88,17 @@ class Config
         return $this->hasGameLoop;
     }
 
+    /**
+     * @return string[]
+     */
     public function getSources(): array
     {
         return $this->sources;
     }
 
+    /**
+     * @return string[]
+     */
     public function getExcludes(): array
     {
         return $this->excludes;
